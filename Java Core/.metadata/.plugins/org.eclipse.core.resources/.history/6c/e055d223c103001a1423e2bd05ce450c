@@ -1,0 +1,64 @@
+package com.tvu56;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		List<Customer> customers = new ArrayList<Customer>();
+		
+		String[] information;
+		try (BufferedReader br = new BufferedReader(new FileReader("D:/Learn Java/DXC Fresher Trainning/Java Core/Customer.txt"))) {
+
+			String sCurrentLine;
+			
+			while ((sCurrentLine = br.readLine()) != null) {
+
+				information = sCurrentLine.split(",");
+				
+				if (information[0].equals("id")) {
+		    		continue;
+		    	} else if (information[1].equals("name")){
+		    		continue;
+		    	} else if (information[2].equals("sex")){
+		    		continue;
+		    	} else if (information[3].equals("dob")){
+		    		continue;
+		    	} else {
+		    		int id = Integer.parseInt(information[0]);
+					String name = information[1];
+					char sex = information[2].charAt(0);
+					String dob = information[3];
+					
+					Date date = null;
+					try {
+						date = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
+						System.out.println(date);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+					
+					customers.add(new Customer(id, name, sex, date));
+		    	}	
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		for (Customer customer : customers) {
+			System.out.println(customer);
+		}
+
+	}
+}

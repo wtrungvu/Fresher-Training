@@ -1,0 +1,60 @@
+package com.tvu56;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Customer {
+	private int id;
+	private String name;
+	private char sex;
+	private Date dob;
+
+	Customer() {
+
+	}
+
+	Customer(int id, String name, char sex, Date dob) {
+		this.id = id;
+		this.name = name;
+		this.sex = sex;
+		this.dob = dob;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public char getSex() {
+		return sex;
+	}
+
+	public void setSex(char sex) {
+		this.sex = sex;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", sex=" + sex + ", dob=" + dob + "]";
+	}
+
+}

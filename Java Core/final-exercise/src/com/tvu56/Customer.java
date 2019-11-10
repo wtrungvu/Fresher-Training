@@ -1,0 +1,69 @@
+package com.tvu56;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
+
+public class Customer {
+	private int id;
+	private String name;
+	private char sex;
+	private String dob;
+
+	Customer() {
+
+	}
+
+	Customer(int id, String name, char sex, String dob) {
+		this.id = id;
+		this.name = name;
+		this.sex = sex;
+		this.dob = dob;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public char getSex() {
+		return sex;
+	}
+
+	public void setSex(char sex) {
+		this.sex = sex;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", sex=" + sex + ", dob=" + dob + "]";
+	}
+
+    public static Comparator<Customer> COMPARE_BY_NAME = new Comparator<Customer>() {
+        public int compare(Customer nameOne, Customer nameTwo) {
+            return nameOne.getName().compareTo(nameTwo.getName());
+        }
+    };
+   
+	
+}

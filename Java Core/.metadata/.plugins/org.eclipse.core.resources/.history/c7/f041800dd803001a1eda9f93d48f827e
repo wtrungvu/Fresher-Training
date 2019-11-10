@@ -1,0 +1,69 @@
+package com.tvu56;
+
+import java.util.Date;
+
+public class Order {
+	private int id;
+	private int custId;
+	private String description;
+	private int total;
+	private String orderDate;
+
+	Order() {
+	}
+
+	Order(int id, int custId, String description, int total, String orderDate) {
+		this.id = id;
+		this.custId = custId;
+		this.description = description;
+		this.total = total;
+		this.orderDate = orderDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getCustId() {
+		return custId;
+	}
+
+	public void setCustId(int custId) {
+		this.custId = custId;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", custId=" + custId + ", description=" + description + ", total=" + total
+				+ ", orderDate=" + orderDate + "]";
+	}
+
+}

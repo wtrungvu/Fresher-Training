@@ -1,0 +1,11 @@
+id,name,sex,dob
+1,Tran Van A,M,10/01/1980
+2,Tran Van B,M,10/10/1985
+3,Nguyen Thi C,F,09/10/1988
+4,Tran Minh Chien,M,12/10/1990
+5,Nguyen Van A,M,10/03/1992
+6,Tran Phu Thanh,M,10/05/1995
+7,Nguyen Thi C,F,09/10/1988
+8,Tran Minh Anh,M,12/10/1990
+9,Nguyen Van An,M,10/03/1992
+10,Tran Thi Thanh,F,10/05/1995

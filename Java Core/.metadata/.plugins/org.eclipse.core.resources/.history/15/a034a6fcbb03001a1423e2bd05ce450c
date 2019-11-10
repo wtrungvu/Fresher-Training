@@ -1,0 +1,33 @@
+package com.tvu56;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		String[] information;
+		try (BufferedReader br = new BufferedReader(new FileReader("D:/Learn Java/DXC Fresher Trainning/Java Core/Customer.txt"))) {
+
+			String sCurrentLine;
+			String first = "Username is: ";
+			String second = "Password is: ";
+
+			while ((sCurrentLine = br.readLine()) != null) {
+
+				information = sCurrentLine.split(",");
+				String username = information[0];
+				String password = information[1];
+				System.out.println(username);
+				System.out.println(password);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+}

@@ -1,0 +1,3 @@
+Order [id=7, custId=6, description=Chuoi, total=25000, orderDate=10/10/1985]
+Order [id=11, custId=6, description=Me, total=25000, orderDate=10/10/1985]
+Order [id=8, custId=1, description=Chuoi, total=20000, orderDate=10/10/1985]

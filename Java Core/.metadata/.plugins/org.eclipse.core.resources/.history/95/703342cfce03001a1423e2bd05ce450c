@@ -1,0 +1,119 @@
+package com.tvu56;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+
+public class Main {
+	public static void main(String[] args) {
+		final String PATH_CUSTOMER = "D:/Learn Java/DXC Fresher Trainning/Java Core/Customer.txt";
+		final String PATH_ORDER = "D:/Learn Java/DXC Fresher Trainning/Java Core/Order.txt";
+		
+		List<Customer> customers = new ArrayList<Customer>();
+		List<Order> orders = new ArrayList<Order>();
+	
+		readFileCustomer(PATH_CUSTOMER, customers);
+		readFileOrder(PATH_ORDER, orders);
+
+		for (Customer customer : customers) {
+			System.out.println(customer);
+		}
+		
+		for (Order order: orders) {
+			System.out.println(order);
+		}
+		
+		// Sort by name.
+		System.out.println("Sort by name:\n");
+		Collections.sort(customers, Customer.COMPARE_BY_NAME);
+		for (Customer customer : customers) {
+			System.out.println(customer);
+		}
+		
+	}
+
+	private static void readFileCustomer(String PATH_CUSTOMER, List<Customer> customers) {
+		
+		String[] information;
+		try (BufferedReader br = new BufferedReader(new FileReader(PATH_CUSTOMER))) {
+
+			String strCurrentLine;
+			
+			while ((strCurrentLine = br.readLine()) != null) {
+				information = strCurrentLine.split(",");
+				addIntoCollectionCustomer(customers, information);	
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void readFileOrder(String PATH_ORDER, List<Order> orders) {
+		
+		String[] information;
+		try (BufferedReader br = new BufferedReader(new FileReader(PATH_ORDER))) {
+
+			String strCurrentLine;
+			
+			while ((strCurrentLine = br.readLine()) != null) {
+				information = strCurrentLine.split(",");
+				addIntoCollectionOrder(orders, information);	
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void addIntoCollectionCustomer(List<Customer> customers, String[] information) {
+		if (information[0].equals("id")) {
+			return;
+		} else if (information[1].equals("name")){
+			return;
+		} else if (information[2].equals("sex")){
+			return;
+		} else if (information[3].equals("dob")){
+			return;
+		} else {
+			int id = Integer.parseInt(information[0]);
+			String name = information[1];
+			char sex = information[2].charAt(0);
+			String dob = information[3];
+			
+			customers.add(new Customer(id, name, sex, dob));
+		}
+	}
+
+	private static void addIntoCollectionOrder(List<Order> orders, String[] information) {
+		if (information[0].equals("id")) {
+			return;
+		} else if (information[1].equals("custId")){
+			return;
+		} else if (information[2].equals("description")){
+			return;
+		} else if (information[3].equals("total")){
+			return;
+		} else if (information[4].equals("orderDate")){
+			return;
+		} else {
+			int id = Integer.parseInt(information[0]);
+			int custId = Integer.parseInt(information[1]);
+			String description = information[2];
+			int total = Integer.parseInt(information[3]);
+			String orderDate = information[4];
+			
+			orders.add(new Order(id, custId, description, total, orderDate));
+		}
+	}
+}

@@ -1,0 +1,48 @@
+package com.tvu56;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		List<String> list = new ArrayList<String>(); 
+	    List<String> frenchList = new ArrayList<String>();
+	    List<String> englishList = new ArrayList<String>();
+	    
+	    File file = new File("D:/Learn Java/DXC Fresher Trainning/Java Core/Customer.txt");
+	    if(file.exists()){
+	        try { 
+	            list = Files.readAllLines(file.toPath(),
+	            		Charset.defaultCharset());
+	        } catch (IOException ex) {
+	            ex.printStackTrace();
+	        }
+	      if(list.isEmpty())
+	          return;
+	    }
+	    
+	    for(String line : list){
+	        String[] splitValues = line.split(",");
+	     // Ignore Line 1
+	    	if (splitValues.equals("id")) {
+	    		continue;
+	    	} else if (splitValues.equals("name")){
+	    		continue;
+	    	} else if (splitValues.equals("sex")){
+	    		continue;
+	    	} else if (splitValues.equals("dob")){
+	    		continue;
+	    	} else {
+	    		System.out.println(line);
+	    	}
+	        
+	    }
+
+	}
+}
